@@ -60,17 +60,17 @@ The <script> tag contains JavaScript code which is automatically executed when t
 If we have a lot of JavaScript code, we can put it into a separate file.
 
 Script files are attached to HTML with the src attribute:
-```js
+```html
 <script src="/path/to/script.js"></script>
 ```
 Here, /path/to/script.js is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, src="script.js" would mean a file "script.js" in the current folder.
 
 We can give a full URL as well. For instance:
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 ```
 To attach several scripts, use multiple tags:
-```js
+```html
 <script src="/js/script1.js"></script>
 <script src="/js/script2.js"></script>
 …
