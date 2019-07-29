@@ -41,6 +41,27 @@ Even if it was originally designed to work in a browser environment, JavaScript 
     - MongoDB
     - Mozilla Rhino
 
+## Tools
+
+Your browser should have two very useful tools to work with JavaScript :
+
+    JavaScript Debugger
+    JavaScript Console
+
+There's also great tools on the web :
+
+    JSfiddle (online playground)
+    JS Bin (online playground)
+    Codepen (online playground)
+    tinkerbin (online playground)
+    JSperf (online benchmarking tool)
+
+
+    JavaScript Reference (MDN)
+    ECMAScript documentation
+    JavaScript Garden (github)
+    Eloquent JavaScript
+
 ## Basic syntax
 
   1. JavaScript is case-sensitive.
@@ -469,25 +490,5 @@ console.warn('The Matrix is a system, Neo. That system is our enemy.');
     Opera web console
     Safari web console
 
-## Tools
-
-Your browser should have two very useful tools to work with JavaScript :
-
-    JavaScript Debugger
-    JavaScript Console
-
-There's also great tools on the web :
-
-    JSfiddle (online playground)
-    JS Bin (online playground)
-    Codepen (online playground)
-    tinkerbin (online playground)
-    JSperf (online benchmarking tool)
-
-
-    JavaScript Reference (MDN)
-    ECMAScript documentation
-    JavaScript Garden (github)
-    Eloquent JavaScript
 
 
