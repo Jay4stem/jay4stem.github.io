@@ -270,7 +270,7 @@ One other note about this is that you might sometimes see the line break written
 The browser will still read the tag correctly, but I’d still recommend writing void elements without that slash.
 
 ## Style tags
-The next set of tags we’re going to look at are style tags– these tags add styles to the text.
+The next set of tags we’re going to look at are style tags. These tags add styles to the text.
 
 They can be bold, like we did in the very beginning, then there’s also italics, underline, emphasized and strong tags.
 
@@ -278,11 +278,11 @@ Like we said before, these style tags aren’t used as much because you can now 
 
 Let’s go through each of the style tags:
 
-The <b> tag makes text bold.
-The <i> tag makes text italic.
-The <u> tag makes text underlined.
-The <em> (emphasized) tag is usually interpreted as italics in browsers.
-And the <strong> tag will usually be bold text.
+The ```<b>``` tag makes text bold.
+The ```<i>``` tag makes text italic.
+The ```<u>``` tag makes text underlined.
+The ```<em>``` (emphasized) tag is usually interpreted as italics in browsers.
+And the ```<strong>``` tag will usually be bold text.
 
 Here’s demo code for what each of those would look like:
 ```html
@@ -364,13 +364,13 @@ The next thing we’re going to look at is lists. HTML can create bulleted or nu
 
 Bulleted lists are called unordered lists, as opposed to the ordered lists that use numbers.
 
-To create a list you’ll use the list tag– either <ol> or <ul> depending on if you’re making an ordered or unordered list.
+To create a list you’ll use the list tag– either ```<ol> or <ul>``` depending on if you’re making an ordered or unordered list.
 
 We’re going to make an unordered list, of different types of fruits.
 
-We’ll make our <ul> tag for the list.
+We’ll make our ```<ul>``` tag for the list.
 
-Inside the list tag you’ll put your list items. Each item will go inside its own list item tag, written as <li>.
+Inside the list tag you’ll put your list items. Each item will go inside its own list item tag, written as ```<li>```.
 
 We’ll add in apples, oranges, pineapples, mangoes, and dragonfruit:
 
@@ -387,7 +387,7 @@ We’ll add in apples, oranges, pineapples, mangoes, and dragonfruit:
 ## Nested lists
 You can even nest lists inside one another. Let’s say I want to add different types of apples under apples. We would create a new list tag inside the list item in question, with its own list items.
 
-So within the apple <li> tag, I’ll add a new <ul> tag under the “apple” text.
+So within the apple ```<li>``` tag, I’ll add a new ```<ul>``` tag under the “apple” text.
 
 Then we’ll put in some different types of apples– golden delicious, gala, granny smith.
 
@@ -410,7 +410,7 @@ Then we’ll put in some different types of apples– golden delicious, gala, gr
 ## Nesting and Indentation
 This brings me to an important aspect of writing good HTML. If you put an HTML tag inside another one, that is called nesting.
 
-Child and parent elements
+## Child and parent elements
 An element inside another one is called a child element, and the outer element is called the parent element.
 
 In order to organize parent and child elements, we indent the child element. This helps to distinguish it from the parent.
@@ -434,11 +434,11 @@ And speaking of indenting and nested elements, the last HTML tag that we’re go
 Tables were originally used as an efficient way to organize data into rows and columns. To demonstrate, let’s make a table for a hypothetical monthly budget of a household.
 
 ## Building the table
-To start, we’ll first need a <table> tag. Everything else in the table will be inside this tag.
+To start, we’ll first need a ```<table>``` tag. Everything else in the table will be inside this tag.
 
 Inside the table we’ll have table rows, table cells, and table headers for the column headers.
 
-Then we’ll add in the first table row, using the <tr> tag.
+Then we’ll add in the first table row, using the ```<tr>``` tag.
     
 ```html
 <table>
@@ -462,7 +462,7 @@ Then we’ll just add in some budget categories here to build out this table. We
    </tr>
 </table>
 ```
-Then in the next row, we’ll add some data for the month of August. Since these are not headers, we will use the <td> tag, for table data.
+Then in the next row, we’ll add some data for the month of August. Since these are not headers, we will use the ```<td>``` tag, for table data.
 
 All right. Let’s say our rent each month is what, $1500? Then we got $150 for utilities, $350 for groceries, $100 for eating out, and $50 for entertainment.
 ```html
@@ -525,14 +525,14 @@ Otherwise things will get kinda messed up. I can show you what this looks like i
    </tr>
 </table>
 ```
-table-missing-cell
 
 If you look at the table in the browser, you can see how the headers now have shifted over one and there’s a weird blank space at the end because there isn’t a table cell there. So let’s put that back.
 
-Table cells can span multiple columns/rows
+### Table cells can span multiple columns/rows
 However, you can make a table cell span multiple columns. Let’s say we wanted to break out the Utilities to have two types of data, one for water and one for electricity. So we’ll say the electricity is $100 and water is $50.
 
 To do this we will actually create an extra cell in the data and adjust the amounts of the Utilities. We have electricity first for $100 and water second for $50.
+
 ```html
 <table border="1" cellpadding="10" cellspacing="0">
    <tr>
@@ -554,6 +554,7 @@ To do this we will actually create an extra cell in the data and adjust the amou
    </tr>
 </table>
 ```
+
 If we just load the table at this point you’ll see that it looks messed up again because of that extra cell in the second row. This next attribute will fix that.
 
 ## Colspan attribute
@@ -618,16 +619,15 @@ And we need to add a spacer cell in the first row so that a total of 4 rows are 
 </table>
 Here’s what the final table looks like!
 ```
-table-months
 
-Tables were used for website layouts
+### Tables were used for website layouts
 A bit of historical context about tables. Aside from containing data, web developers also used to use tables to layout web designs.
 
 So for example if you have a website design with a header, main content, and a footer, you can create one big table with three rows. And you can then put all your content in those table cells. Table cells can contain any kind of HTML– images, links, text, you name it.
 
 It was very handy back in the day. Nowadays tables aren’t really used very often. The only common exception that I can think of is for HTML emails, because some older email systems can’t use a lot of CSS, so coding like it’s 1999 is unfortunately the only option.
 
-
+# JavaScript
 ## History
 
 JavaScript was introduced by Brendan Eich in 1995 for Netscape Communications. It was submitted few months later to Ecma International for consideration as an industry standard. The result standard version is ECMAScript.
