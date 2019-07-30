@@ -180,7 +180,7 @@ We’re going to add an  ```html<h1>``` tag to our web page. Inside the tag we w
 
 We’ll also add a subtitle using the  ```html<h2>``` tag, with the content: “An HTML Playground.”
 
-And just for kicks, let’s add in the rest of the H tags, up to <h6>.
+And just for kicks, let’s add in the rest of the H tags, up to ```html<h6>```.
 
 So your body tag will look something like this:
 ```html
@@ -196,7 +196,7 @@ So your body tag will look something like this:
 
 You can see how the font sizes get progressively smaller from  ```html<h1> to <h6>```.
 
-Most websites don’t use all the H tags. Usually they will use  <h1> for the title,  <h2> for subtitle, and  <h3> sometimes for section titles. It’s pretty rare to use  <h4> through <h6>.
+Most websites don’t use all the H tags. Usually they will use  <h1> for the title,  ```html<h2> for subtitle, and  <h3> ```sometimes for section titles. It’s pretty rare to use  ```html<h4> through <h6>```.
 
 ## Paragraph
 The next tag we’re gonna look at is the paragraph, or  <p> tag. Just like in Word, you can use paragraphs to separate your content into blocks. You can create a paragraph by surrounding your content with the <p> tags.
