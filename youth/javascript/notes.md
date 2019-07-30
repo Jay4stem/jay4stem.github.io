@@ -174,7 +174,7 @@ But I think it’s still helpful to at least know what these basic tags are.
 ## Header Tags
 Let’s look first at the headline or header tags, designated with the letter H. Each H tag also has a number after the H. They range from ```html <h1> to <h6>.```
 
-The  <h1> tag is the highest in priority. It’s generally used for the title of the page.
+The  ```html<h1>``` tag is the highest in priority. It’s generally used for the title of the page.
 
 We’re going to add an  ```html<h1>``` tag to our web page. Inside the tag we will put the title of the webpage, My First Website.
 
