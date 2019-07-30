@@ -172,15 +172,15 @@ Not all of these tags are still used as much as they used to be. Some of them ar
 But I think it’s still helpful to at least know what these basic tags are.
 
 ## Header Tags
-Let’s look first at the headline or header tags, designated with the letter H. Each H tag also has a number after the H. They range from ```html <h1> to <h6>.```
+Let’s look first at the headline or header tags, designated with the letter H. Each H tag also has a number after the H. They range from ``` <h1> to <h6>.```
 
-The  ```html<h1>``` tag is the highest in priority. It’s generally used for the title of the page.
+The  ```<h1>``` tag is the highest in priority. It’s generally used for the title of the page.
 
-We’re going to add an  ```html<h1>``` tag to our web page. Inside the tag we will put the title of the webpage, My First Website.
+We’re going to add an  ```<h1>``` tag to our web page. Inside the tag we will put the title of the webpage, My First Website.
 
-We’ll also add a subtitle using the  ```html<h2>``` tag, with the content: “An HTML Playground.”
+We’ll also add a subtitle using the  ```<h2>``` tag, with the content: “An HTML Playground.”
 
-And just for kicks, let’s add in the rest of the H tags, up to ```html<h6>```.
+And just for kicks, let’s add in the rest of the H tags, up to ```<h6>```.
 
 So your body tag will look something like this:
 ```html
@@ -194,9 +194,9 @@ So your body tag will look something like this:
 </body>
 ```
 
-You can see how the font sizes get progressively smaller from  ```html<h1> to <h6>```.
+You can see how the font sizes get progressively smaller from  ```<h1> to <h6>```.
 
-Most websites don’t use all the H tags. Usually they will use  <h1> for the title,  ```html<h2> for subtitle, and  <h3> ```sometimes for section titles. It’s pretty rare to use  ```html<h4> through <h6>```.
+Most websites don’t use all the H tags. Usually they will use  ```<h1>``` for the title,  ```<h2> for subtitle, and  <h3> ```sometimes for section titles. It’s pretty rare to use  ```<h4> through <h6>```.
 
 ## Paragraph
 The next tag we’re gonna look at is the paragraph, or  <p> tag. Just like in Word, you can use paragraphs to separate your content into blocks. You can create a paragraph by surrounding your content with the <p> tags.
