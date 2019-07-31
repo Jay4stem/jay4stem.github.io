@@ -746,7 +746,7 @@ em, strong {
 The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
 
 ## Content, Padding, Border, and Margin
-The “CSS box model” is a set of rules that determine the dimensions of every element in a web page. It gives each box (both inline and block) four properties:
+The "CSS box model" is a set of rules that determine the dimensions of every element in a web page. It gives each box (both inline and block) four properties:
 
     - Content – The text, image, or other media content in the element.
     - Padding – The space between the box’s content and its border.
@@ -756,7 +756,7 @@ The “CSS box model” is a set of rules that determine the dimensions of every
 Together, this is everything a browser needs to render an element’s box. The content is what you author in an HTML document, and it’s the only one that has any semantic value (which is why it’s in the HTML). The rest of them are purely presentational, so they’re defined by CSS rules. 
 
 ### Padding
-This adds 50 pixels to each side of the <h1> heading. Notice how the background color expands to fill this space. That’s always the case for padding because it’s inside the border, and everything inside the border gets a background.
+This adds 50 pixels to each side of the ```<h1>``` heading. Notice how the background color expands to fill this space. That’s always the case for padding because it’s inside the border, and everything inside the border gets a background.
 ```css
 h1 {
   padding: 50px;
@@ -952,7 +952,7 @@ It’s usually a good idea to override default styles to a predictable value usi
 ```
 This selector matches every HTML element, effectively resetting the margin and padding properties for our web page. We also converted all our boxes to border-box, which, again, is a best practice.
 
-https://learn.shayhowe.com/assets/images/courses/html-css/opening-the-box-model/developer-tools.png
+![alt text](https://learn.shayhowe.com/assets/images/courses/html-css/opening-the-box-model/developer-tools.png)
 # JavaScript
 ## History
 
