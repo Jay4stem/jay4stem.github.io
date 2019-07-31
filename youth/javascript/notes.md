@@ -726,7 +726,27 @@ p {
   display: inline-block;
 }
 ```
+### Set up your folder and files:
+To get started, let’s create a new folder called css-box-model and stick a new web page in it called boxes.html. Add the following code:
+```html
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Boxes Are Easy!</title>
+    <link rel='stylesheet' href='box-styles.css'/>
+  </head>
+  <body>
+    <h1>Headings Are Block Elements</h1>
 
+    <p>Paragraphs are blocks, too. <em>However</em>, &lt;em&gt; and &lt;strong&gt;
+       elements are not. They are <strong>inline</strong> elements.</p>
+
+    <p>Block elements define the flow of the HTML document, while inline elements
+       do not.</p>
+  </body>
+</html>
+```
 ## Block Elements and Inline Elements
 Each HTML element rendered on the screen is a box, and they come in two flavors: “block” boxes and “inline“ boxes.
 
@@ -743,6 +763,7 @@ em, strong {
   background-color: #B2D6FF;    /* Light blue */
 }
 ```
+(https://internetingishard.com/html-and-css/css-box-model/block-boxes-and-inline-boxes-7cfa0a.png)
 The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
 
 ## Content, Padding, Border, and Margin
