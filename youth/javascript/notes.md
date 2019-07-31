@@ -763,7 +763,7 @@ em, strong {
   background-color: #B2D6FF;    /* Light blue */
 }
 ```
-(https://internetingishard.com/html-and-css/css-box-model/block-boxes-and-inline-boxes-7cfa0a.png)
+![Block and Inline boxes](https://internetingishard.com/html-and-css/css-box-model/block-boxes-and-inline-boxes-7cfa0a.png)
 The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
 
 ## Content, Padding, Border, and Margin
