@@ -728,7 +728,7 @@ p {
 }
 ```
 ### Set up your folder and files:
-To get started, let’s create a new folder called css-box-model and stick a new web page in it called boxes.html. Add the following code:
+To get started, let’s create a <u>new folder</u> in your Day3 folder called <b>css-box-model</b> and stick a new web page in it called <b>boxes.html</b>. Add the following code:
 ```html
 <!DOCTYPE html>
 <html lang='en'>
@@ -1007,6 +1007,31 @@ One of the best things about CSS is that it gives us the ability to position con
 
 There are a few different types of positioning within CSS, and each has its own application. In this chapter we’re going to take a look at a few different use cases—creating reusable layouts and uniquely positioning one-off elements—and describe a few ways to go about each.
 
+## Set up your HTML files: *Create a folder in Day3/positioningHTML/*
+
+### HTML - positioning.html
+
+Let’s create a common page layout with a header at the top, two columns in the center, and a footer at the bottom. Ideally this page would be marked up using the ```<header>, <section>, <aside>, and <footer>``` elements. Inside the ```<body>``` element, the HTML may look like this:
+
+```html
+<header>...</header>
+<section>...</section>
+<aside>...</aside>
+<footer>...</footer>
+```
+
+### CSS - styles.css
+```css
+header, section, aside, footer{
+  background: #2db34a;
+  border-radius: 6px;
+  color: #fff;
+  display: block;
+  font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: center;
+}
+```
 ## Positioning with Floats
 
 One way to position elements on a page is with the float property. The float property is pretty versatile and can be used in a number of different ways.
@@ -1023,13 +1048,6 @@ img {
 ```             
 ## Floats in Practice
 
-Let’s create a common page layout with a header at the top, two columns in the center, and a footer at the bottom. Ideally this page would be marked up using the ```<header>, <section>, <aside>, and <footer>``` elements. Inside the ```<body>``` element, the HTML may look like this:
-```html
-<header>...</header>
-<section>...</section>
-<aside>...</aside>
-<footer>...</footer>
-```
 ## Layout without Floats Demo
 
 Here the ```<section> and <aside>``` elements, as block-level elements, will be stacked on top of one another by default. However, we want these elements to sit side by side. By floating the ```<section>``` to the left and the ```<aside>``` to the right, we can position them as two columns sitting opposite one another. Our CSS should look like this:
