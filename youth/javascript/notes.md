@@ -1,5 +1,4 @@
 ### JavaScript - Web application development
-![TEst](https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js)
 ## What is HTML?
 Now, what is HTML? HTML stands for HyperText Markup Language.
 
@@ -697,7 +696,7 @@ The second selector above, .hotdog p.mustard, includes three selectors: two clas
 
 # the Box Model
 CSS treats each element in your HTML document as a “box” with a bunch of different properties that determine where it appears on the page.
-
+![Box Model](https://internetingishard.com/html-and-css/css-box-model/css-box-model-73a525.png)
 ### How Are Elements Displayed?
 Before jumping into the box model, it helps to understand how elements are displayed. In Lesson 2 we covered the difference between block-level and inline-level elements. To quickly recap, block-level elements occupy any available width, regardless of their content, and begin on a new line. Inline-level elements occupy only the width their content requires and line up on the same line, one after the other. Block-level elements are generally used for larger pieces of content, such as headings and structural elements. Inline-level elements are generally used for smaller pieces of content, such as a few words selected to be bold or italicized.
 
