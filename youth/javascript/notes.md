@@ -636,12 +636,12 @@ First, it’s crucial to know exactly how styles are rendered. Specifically, we�
 
 Let’s look under the hood of CSS to see exactly what is going on.
 
-The Cascade
+## The Cascade
 We’ll begin breaking down exactly how styles are rendered by looking at what is known as the cascade and studying a few examples of the cascade in action. Within CSS, all styles cascade from the top of a style sheet to the bottom, allowing different styles to be added or overwritten as the style sheet progresses.
 
 For example, say we select all paragraph elements at the top of our style sheet and set their background color to orange and their font size to 24 pixels. Then towards the bottom of our style sheet, we select all paragraph elements again and set their background color to green, as seen here.
 
-```html
+```css
 p {
   background: orange;
   font-size: 24px;
@@ -655,7 +655,7 @@ Because the paragraph selector that sets the background color to green comes aft
 Cascading Properties
 The cascade also works with properties inside individual selectors. Again, for example, say we select all the paragraph elements and set their background color to orange. Then directly below the orange background property and value declaration, we add another property and value declaration setting the background color to green, as seen here.
 
-```html
+```css
 p {
   background: orange;
   background: green;
@@ -700,22 +700,22 @@ We’ve familiarized ourselves with HTML and CSS; we know what they look like an
 
 In the process we’ll discuss what is known as the box model and how it works with HTML and CSS. We’re also going to look at a few new CSS properties and use some of the length values we covered in Lesson 3. Let’s begin.
 
-How Are Elements Displayed?
+### How Are Elements Displayed?
 Before jumping into the box model, it helps to understand how elements are displayed. In Lesson 2 we covered the difference between block-level and inline-level elements. To quickly recap, block-level elements occupy any available width, regardless of their content, and begin on a new line. Inline-level elements occupy only the width their content requires and line up on the same line, one after the other. Block-level elements are generally used for larger pieces of content, such as headings and structural elements. Inline-level elements are generally used for smaller pieces of content, such as a few words selected to be bold or italicized.
 
-Display
+## Display
 Exactly how elements are displayed—as block-level elements, inline elements, or something else—is determined by the display property. Every element has a default display property value; however, as with all other property values, that value may be overwritten. There are quite a few values for the display property, but the most common are block, inline, inline-block, and none.
 
 We can change an element’s display property value by selecting that element within CSS and declaring a new display property value. A value of block will make that element a block-level element.
 
-```html
+```css
 p {
   display: block;
 }
 ```
 A value of inline will make that element an inline-level element.
 
-```html
+```css
 p {
   display: inline;
 }
@@ -723,7 +723,7 @@ p {
 
 Things get interesting with the inline-block value. Using this value will allow an element to behave as a block-level element, accepting all box model properties (which we’ll cover soon). However, the element will be displayed in line with other elements, and it will not begin on a new line by default.
 
-```html
+```css
 p {
   display: inline-block;
 }
@@ -732,7 +732,7 @@ p {
 ## What Is the Box Model?
 According to the box model concept, every element on a page is a rectangular box and may have width, height, padding, borders, and margins.
 
-Working with the Box Model
+## Working with the Box Model
 Every element is a rectangular box, and there are several properties that determine the size of that box. The core of the box is defined by the width and height of an element, which may be determined by the display property, by the contents of the element, or by specified width and height properties. padding and then border expand the dimensions of the box outward from the element’s width and height. Lastly, any margin we have specified will follow the border.
 
 Each part of the box model corresponds to a CSS property: width, height, padding, border, and margin.
