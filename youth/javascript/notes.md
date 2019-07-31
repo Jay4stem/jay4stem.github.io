@@ -764,8 +764,28 @@ em, strong {
 }
 ```
 ![Block and Inline boxes](https://internetingishard.com/html-and-css/css-box-model/block-boxes-and-inline-boxes-7cfa0a.png)
-The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
 
+The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
+This shows us a couple of very important behaviors associated with block and inline boxes:
+
+    - Block boxes always appear below the previous block element. This is the “natural” or “static” flow of an HTML document when it gets rendered by a web browser.
+    - The width of block boxes is set automatically based on the width of its parent container. In this case, our blocks are always the width of the browser window.
+    - The default height of block boxes is based on the content it contains. When you narrow the browser window, the <h1> gets split over two lines, and its height adjusts accordingly.
+    - Inline boxes don’t affect vertical spacing. They’re not for determining layout—they’re for styling stuff inside of a block.
+    - The width of inline boxes is based on the content it contains, not the width of the parent element.
+
+## Changing Box Behavior
+
+We can override the default box type of HTML elements with the CSS display property. For example, if we wanted to make our ```<em> and <strong>``` elements blocks instead of inline elements, we could update our rule in box-styles.css like so:
+```css
+em, strong {
+  background-color: #B2D6FF;
+  display: block;
+}
+```
+![Turning Inline to Block](https://internetingishard.com/html-and-css/css-box-model/turning-inline-into-block-boxes-772f4c.png)
+Now, these elements act like our headings and paragraphs: they start on their own line, and they fill the entire width of the browser. This comes in handy when you’re trying to turn <a> elements into buttons or format ```<img/>``` elements (both of these are inline boxes by default).
+ 
 ## Content, Padding, Border, and Margin
 The "CSS box model" is a set of rules that determine the dimensions of every element in a web page. It gives each box (both inline and block) four properties:
 
