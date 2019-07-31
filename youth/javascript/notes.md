@@ -818,7 +818,7 @@ Margins and padding can accomplish the same thing in a lot of situations, making
 
 ## Margins on Inline Elements
 
-One of the starkest contrasts between block-level elements and inline ones is their handling of margins. Inline boxes completely ignore the top and bottom margins of an element. For example, watch what happens when we add a big margin to our <strong> element:
+One of the starkest contrasts between block-level elements and inline ones is their handling of margins. Inline boxes completely ignore the top and bottom margins of an element. For example, watch what happens when we add a big margin to our ```<strong>``` element:
 ```css
 strong {
   margin: 50px;
