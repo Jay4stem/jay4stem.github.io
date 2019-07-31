@@ -696,9 +696,7 @@ The first combined selector above, .hotdog p, includes two selectors: a class an
 The second selector above, .hotdog p.mustard, includes three selectors: two class selectors and one type selector. The only difference between the second selector and the first selector is the addition of the class selector of mustard to the end of the paragraph type selector. Because the new class selector, mustard, falls all the way to the right of the combined selector, it is the key selector, and all of the individual selectors coming before it are now prequalifiers.
 
 # the Box Model
-We’ve familiarized ourselves with HTML and CSS; we know what they look like and how to accomplish some of the basics. Now we’re going to go a bit deeper and look at exactly how elements are displayed on a page and how they are sized.
-
-In the process we’ll discuss what is known as the box model and how it works with HTML and CSS. We’re also going to look at a few new CSS properties and use some of the length values we covered in Lesson 3. Let’s begin.
+CSS treats each element in your HTML document as a “box” with a bunch of different properties that determine where it appears on the page.
 
 ### How Are Elements Displayed?
 Before jumping into the box model, it helps to understand how elements are displayed. In Lesson 2 we covered the difference between block-level and inline-level elements. To quickly recap, block-level elements occupy any available width, regardless of their content, and begin on a new line. Inline-level elements occupy only the width their content requires and line up on the same line, one after the other. Block-level elements are generally used for larger pieces of content, such as headings and structural elements. Inline-level elements are generally used for smaller pieces of content, such as a few words selected to be bold or italicized.
@@ -729,27 +727,232 @@ p {
 }
 ```
 
-## What Is the Box Model?
-According to the box model concept, every element on a page is a rectangular box and may have width, height, padding, borders, and margins.
+## Block Elements and Inline Elements
+Each HTML element rendered on the screen is a box, and they come in two flavors: “block” boxes and “inline“ boxes.
 
-## Working with the Box Model
-Every element is a rectangular box, and there are several properties that determine the size of that box. The core of the box is defined by the width and height of an element, which may be determined by the display property, by the contents of the element, or by specified width and height properties. padding and then border expand the dimensions of the box outward from the element’s width and height. Lastly, any margin we have specified will follow the border.
+All the HTML elements that we’ve been working with have a default type of box. For instance, <h1> and <p> are block-level elements, while <em> and <strong> are inline elements.
+ 
+Let’s get a better look at our boxes by adding the following to box-styles.css:
 
-Each part of the box model corresponds to a CSS property: width, height, padding, border, and margin.
+```css
+h1, p {
+  background-color: #DDE0E3;    /* Light gray */
+}
 
-Let’s look these properties inside some code:
+em, strong {
+  background-color: #B2D6FF;    /* Light blue */
+}
+```
+The background-color property only fills in the background of the selected box, so this will give us a clear view into the structure of the current sample page. Our headings and paragraphs should have gray backgrounds, while our emphasis and strong elements should be light blue.
 
-```html
-div {
-  border: 6px solid #949599;
-  height: 100px;
-  margin: 20px;
-  padding: 20px;
-  width: 400px;
+## Content, Padding, Border, and Margin
+The “CSS box model” is a set of rules that determine the dimensions of every element in a web page. It gives each box (both inline and block) four properties:
+
+    - Content – The text, image, or other media content in the element.
+    - Padding – The space between the box’s content and its border.
+    - Border – The line between the box’s padding and margin.
+    - Margin – The space between the box and surrounding boxes.
+
+Together, this is everything a browser needs to render an element’s box. The content is what you author in an HTML document, and it’s the only one that has any semantic value (which is why it’s in the HTML). The rest of them are purely presentational, so they’re defined by CSS rules. 
+
+### Padding
+This adds 50 pixels to each side of the <h1> heading. Notice how the background color expands to fill this space. That’s always the case for padding because it’s inside the border, and everything inside the border gets a background.
+```css
+h1 {
+  padding: 50px;
+}
+```
+Sometimes you’ll only want to style one side of an element. For that, CSS provides the following properties:
+ ```css
+p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+```
+### Shorthand Formats
+
+Typing out all of these properties out can be tiresome, so CSS provides an alternative “shorthand” form of the padding property that lets you set the top/bottom and left/right padding with only one line of CSS. When you provide two values to the padding property, it’s interpreted as the vertical and horizontal padding values, respectively.
+
+```css
+p {
+  padding: 20px 10px;  /* Vertical  Horizontal */
 }
 ```
 
+Let’s try this out by removing the 10px right padding from the previous rule. This should give us 20 pixels on the top and bottom of each paragraph, 10 pixels on the left, but none on the right:
+```css
+p {
+  padding: 20px 0 20px 10px;  /* Top  Right  Bottom  Left */
+}
+```
 
+### Borders
+Try adding a border around our ```<h1>``` heading by updating the rule in box-styles.css:
+```css
+h1 {
+  padding: 50px;
+  border: 1px solid #5D6063;
+}
+```
+Drawing a border around our entire heading makes it look a little 1990s, so how about we limit it to the bottom of the heading? Like padding, there are -top, -bottom, -left, and -right variants for the border property:
+```css
+border-bottom: 1px solid #5D6063;
+```
+## Margins
+Margins define the space outside of an element’s border. Or, rather, the space between a box and its surrounding boxes. Let’s add some space to the bottom of each ```<p>``` element:
+```css
+p {
+  padding: 20px 0 20px 10px;
+  margin-bottom: 50px;          /* Add this */
+}
+```
+This demonstrates a side-specific variant of the margin property, but it also accepts the same shorthand formats as padding.
+
+Margins and padding can accomplish the same thing in a lot of situations, making it difficult to determine which one is the “right” choice. The most common reasons why you would pick one over the other are:
+
+    - The padding of a box has a background, while margins are always transparent.
+    - Padding is included in the click area of an element, while margins aren’t.
+    - Margins collapse vertically, while padding doesn’t (we’ll discuss this more in the next section).
+
+## Margins on Inline Elements
+
+One of the starkest contrasts between block-level elements and inline ones is their handling of margins. Inline boxes completely ignore the top and bottom margins of an element. For example, watch what happens when we add a big margin to our <strong> element:
+```css
+strong {
+  margin: 50px;
+}
+```
+The horizontal margins display just like we’d expect, but this doesn’t alter the vertical space around our``` <strong>``` element one bit.
+
+If we change margin to padding, we’ll discover that this isn’t exactly the case for a box’s padding. It’ll display the blue background; however, it won’t affect the vertical layout of the surrounding boxes.
+
+## Generic Boxes
+
+So far, every HTML element we’ve seen lends additional meaning to the content it contains. Indeed, this is the whole point of HTML, but there are many times when we need a generic box purely for the sake of styling a web page. This is what <div> and <span> are for.
+
+Both ```<div> and <span>``` are “container” elements that don’t have any affect on the semantic structure of an HTML document. They do, however, provide a hook for adding CSS styles to arbitrary sections of a web page. For example, sometimes you need to add an invisible box to prevent a margin collapse, or maybe you want to group the first few paragraphs of an article into a synopsis with slightly different text formatting.
+
+We’ll use a lot of ```<div>’s``` throughout the rest of this tutorial. 
+
+For now, let’s create a simple button by adding the following to the bottom of our boxes.html file:
+```html
+<div>Button</div>
+```
+
+And here are the associated styles that need to go into box-styles.css. Most of these should be familiar from the last chapter, although we did throw in a new border-radius property:
+```css
+div {
+  color: #FFF;
+  background-color: #5995DA;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+}
+```
+This will give us a big blue button that spans the entire width of the browser:
+Web page using ```<div>``` elements for buttons
+
+Of course, these styles also apply to the invisible ```<div>``` we used to break the margin collapse in the previous section. Obviously, we need a way to select individual ```<div>’s``` if they’re to be of any practical use to us. That’s what class selectors are for, which we’ll introduce in the next chapter. In lieu of those, let’s just delete or comment out that invisible ```<div>```.
+
+The only real difference between a ```<div> and a <span>``` is that the former is for block-level content while the latter is meant for inline content.
+
+## Explicit Dimensions
+
+So far, we’ve let our HTML elements define their dimensions automatically. The paddings, borders, and margins we’ve been playing with all wrap around whatever content happens to be inside the element’s box. If you add more text to our ```<em>``` element, everything will expand to accommodate it:
+
+Web page showing an ```<em>``` element expanding as more content is added
+
+But, sometimes our desired layout calls for an explicit dimension, like a sidebar that’s exactly 250 pixels wide. For this, CSS provides the width and height properties. These take precedence over the default size of a box’s content.
+
+Let’s give our button an explicit width by adding the following property to box-styles.css:
+```html
+div {
+  /* [Existing Declarations] */
+  width: 200px;
+}
+````
+Instead of being as wide as the browser window, our button is now 200 pixels, and it hugs the left side of the page:
+
+Also notice that if you make the button’s title longer, it will automatically wrap to the next line, and the element will expand vertically to accommodate the new content. You can change this default behavior with the white-space and overflow properties.
+
+## Content Boxes and Border Boxes
+
+The width and height properties only define the size of a box’s content. Its padding and border are both added on top of whatever explicit dimensions you set. This explains why you’ll get an image that’s 244 pixels wide when you take a screenshot of our button, despite the fact that it has a width: 200px declaration attached to it.
+Diagram: content-box measurements adding padding and border to width of the element
+
+Needless to say, this can be a little counterintuitive when you’re trying to lay out a page. Imagine trying to fill a 600px container with three boxes that are all width: 200px, but they don’t fit because they all have a 1px border (making their actual width 202px).
+
+Fortunately, CSS lets you change how the width of a box is calculated via the box-sizing property. By default, it has a value of content-box, which leads to the behavior described above. Let’s see what happens when we change it to border-box:
+```html
+div {
+  color: #FFF;
+  background-color: #5995DA;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+  
+  width: 200px;
+  box-sizing: border-box;  /* Add this */
+}
+```
+This forces the actual width of the box to be 200px—including padding and borders. Of course, this means that the content width is now determined automatically:
+
+This is much more intuitive, and as a result, using border-box for all your boxes is considered a best practice among modern web developers.
+
+### Aligning Boxes
+
+Aligning boxes horizontally is a common task for web developers, and the box model offers a lot of ways to do it. We already saw the text-align property, which aligns the content and inline boxes inside of a block-level element. Aligning block boxes is another story.
+
+Try adding the following rule to our stylesheet. It will only align the content inside of our block boxes—not the blocks themselves. Our <div> button is still left-aligned regardless of the <body>’s text alignment:
+```html
+body {
+  text-align: center;
+}
+```
+There are three methods for horizontally aligning block-level elements: “auto-margins” for center alignment, “floats” for left/right alignment, and “flexbox” for complete control over alignment. Yes, unfortunately block-level alignment is totally unrelated to the text-align property.
+
+## Centering With Auto-Margins
+
+Floats and flexbox are complicated topics that we’ve devoted entire chapters to, but we do have the background to deal with auto-margins right now. When you set the left and right margin of a block-level element to auto, it will center the block in its parent element.
+
+For example, we can center our button with the following:
+```html
+div {
+  color: #FFF;
+  background-color: #4A90E2;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+
+  width: 200px;
+  box-sizing: border-box;
+  margin: 20px auto; /* Vertical  Horizontal */
+}
+```
+Note that this only works on blocks that have an explicit width defined on them. Remove that width: 200px line, and our button will be the full width of the browser, making “center alignment” meaningless.
+
+## Resetting Styles
+
+Notice that white band around our page? That’s a default margin/padding added by your browser. Different browsers have different default styles for all of their HTML elements, making it difficult to create consistent stylesheets.
+One web page showing white border due to default margin/padding and another web page without the white border after a universal reset
+
+It’s usually a good idea to override default styles to a predictable value using the “universal” CSS selector ```(*)```. Try adding this to the top of our box-styles.css file:
+```html
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+This selector matches every HTML element, effectively resetting the margin and padding properties for our web page. We also converted all our boxes to border-box, which, again, is a best practice.
+
+https://learn.shayhowe.com/assets/images/courses/html-css/opening-the-box-model/developer-tools.png
 # JavaScript
 ## History
 
