@@ -730,7 +730,7 @@ p {
 ## Block Elements and Inline Elements
 Each HTML element rendered on the screen is a box, and they come in two flavors: “block” boxes and “inline“ boxes.
 
-All the HTML elements that we’ve been working with have a default type of box. For instance, <h1> and <p> are block-level elements, while <em> and <strong> are inline elements.
+All the HTML elements that we’ve been working with have a default type of box. For instance, ```<h1> and <p>``` are block-level elements, while ```<em> and <strong>``` are inline elements.
  
 Let’s get a better look at our boxes by adding the following to box-styles.css:
 
