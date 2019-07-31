@@ -13,7 +13,7 @@ You can actually create an HTML file on your computer, and load it in your brows
 
 For real websites that anyone can access on the internet, the HTML files are stored on computers called servers. But the basic process is pretty similar.
 
-To create your HTML file:
+### To create your HTML file:
 
 Go to your desktop or wherever you want to put the file.
 Then right click and select “New” and “Text Document.” Make sure that the filename reads “index.html” and doesn’t end in “.txt.”
@@ -635,6 +635,8 @@ First, it’s crucial to know exactly how styles are rendered. Specifically, we�
 
 Let’s look under the hood of CSS to see exactly what is going on.
 
+![CSS Rules](https://internetingishard.com/html-and-css/hello-css/css-rule-terminology-1a7961.png)
+
 ## The Cascade
 We’ll begin breaking down exactly how styles are rendered by looking at what is known as the cascade and studying a few examples of the cascade in action. Within CSS, all styles cascade from the top of a style sheet to the bottom, allowing different styles to be added or overwritten as the style sheet progresses.
 
@@ -651,7 +653,7 @@ p {
 ```
 Because the paragraph selector that sets the background color to green comes after the paragraph selector that sets the background color to orange, it will take precedence in the cascade. All of the paragraphs will appear with a green background. The font size will remain 24 pixels because the second paragraph selector didn’t identify a new font size.
 
-Cascading Properties
+### Cascading Properties
 The cascade also works with properties inside individual selectors. Again, for example, say we select all the paragraph elements and set their background color to orange. Then directly below the orange background property and value declaration, we add another property and value declaration setting the background color to green, as seen here.
 
 ```css
@@ -802,6 +804,7 @@ h1 {
   padding: 50px;
 }
 ```
+![Padding](https://internetingishard.com/html-and-css/css-box-model/increasing-heading-padding-5a289d.png)
 Sometimes you’ll only want to style one side of an element. For that, CSS provides the following properties:
  ```css
 p {
@@ -814,7 +817,7 @@ p {
 ### Shorthand Formats
 
 Typing out all of these properties out can be tiresome, so CSS provides an alternative “shorthand” form of the padding property that lets you set the top/bottom and left/right padding with only one line of CSS. When you provide two values to the padding property, it’s interpreted as the vertical and horizontal padding values, respectively.
-
+![Vertical Horizontal](https://internetingishard.com/html-and-css/css-box-model/padding-shortform-two-values-a7ed4c.png)
 ```css
 p {
   padding: 20px 10px;  /* Vertical  Horizontal */
@@ -822,6 +825,7 @@ p {
 ```
 
 Let’s try this out by removing the 10px right padding from the previous rule. This should give us 20 pixels on the top and bottom of each paragraph, 10 pixels on the left, but none on the right:
+![Top Right Bottom Left](https://internetingishard.com/html-and-css/css-box-model/padding-shortform-four-values-93c021.png)
 ```css
 p {
   padding: 20px 0 20px 10px;  /* Top  Right  Bottom  Left */
@@ -859,6 +863,7 @@ Margins and padding can accomplish the same thing in a lot of situations, making
 ## Margins on Inline Elements
 
 One of the starkest contrasts between block-level elements and inline ones is their handling of margins. Inline boxes completely ignore the top and bottom margins of an element. For example, watch what happens when we add a big margin to our ```<strong>``` element:
+![Inline Margin](https://internetingishard.com/html-and-css/css-box-model/margins-on-inline-elements-4c569c.png)
 ```css
 strong {
   margin: 50px;
@@ -867,6 +872,7 @@ strong {
 The horizontal margins display just like we’d expect, but this doesn’t alter the vertical space around our``` <strong>``` element one bit.
 
 If we change margin to padding, we’ll discover that this isn’t exactly the case for a box’s padding. It’ll display the blue background; however, it won’t affect the vertical layout of the surrounding boxes.
+![Inline Padding](https://internetingishard.com/html-and-css/css-box-model/paddings-on-inline-elements-fb52d0.png)
 
 ## Generic Boxes
 
@@ -895,6 +901,7 @@ div {
 ```
 This will give us a big blue button that spans the entire width of the browser:
 Web page using ```<div>``` elements for buttons
+![Div Button](https://internetingishard.com/html-and-css/css-box-model/generic-div-for-button-70dc27.png)
 
 Of course, these styles also apply to the invisible ```<div>``` we used to break the margin collapse in the previous section. Obviously, we need a way to select individual ```<div>’s``` if they’re to be of any practical use to us. That’s what class selectors are for, which we’ll introduce in the next chapter. In lieu of those, let’s just delete or comment out that invisible ```<div>```.
 
@@ -916,13 +923,14 @@ div {
 }
 ````
 Instead of being as wide as the browser window, our button is now 200 pixels, and it hugs the left side of the page:
+![Width Div Button](https://internetingishard.com/html-and-css/css-box-model/explicit-width-on-generic-div-78d595.png)
 
 Also notice that if you make the button’s title longer, it will automatically wrap to the next line, and the element will expand vertically to accommodate the new content. You can change this default behavior with the white-space and overflow properties.
 
 ## Content Boxes and Border Boxes
 
 The width and height properties only define the size of a box’s content. Its padding and border are both added on top of whatever explicit dimensions you set. This explains why you’ll get an image that’s 244 pixels wide when you take a screenshot of our button, despite the fact that it has a width: 200px declaration attached to it.
-Diagram: content-box measurements adding padding and border to width of the element
+![Content-Box](https://internetingishard.com/html-and-css/css-box-model/box-sizing-content-box-09f48a.png)
 
 Needless to say, this can be a little counterintuitive when you’re trying to lay out a page. Imagine trying to fill a 600px container with three boxes that are all width: 200px, but they don’t fit because they all have a 1px border (making their actual width 202px).
 
@@ -942,7 +950,7 @@ div {
 }
 ```
 This forces the actual width of the box to be 200px—including padding and borders. Of course, this means that the content width is now determined automatically:
-
+![Border-Box](https://internetingishard.com/html-and-css/css-box-model/box-sizing-border-box-ace2be.png)
 This is much more intuitive, and as a result, using border-box for all your boxes is considered a best practice among modern web developers.
 
 ### Aligning Boxes
