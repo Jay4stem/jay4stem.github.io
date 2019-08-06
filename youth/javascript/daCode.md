@@ -297,9 +297,6 @@ There are two limitations shared by all the methods above:
     Create a web-page that asks for a name and outputs it.
     
     Solution:
-    ```js
-    JavaScript-code:
-
     let name = prompt("What is your name?", "");
     alert(name);
 
@@ -318,4 +315,61 @@ There are two limitations shared by all the methods above:
 
     </body>
     </html>
-    ```
+    
+ ## Control Structures
+ ### The “if” statement
+
+The if(...) statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
+
+For example:
+```js
+let year = prompt('In which year was ECMAScript-2015 specification published?', '');
+
+if (year == 2015)
+alert( 'You are right!' );
+```
+
+In the example above, the condition is a simple equality check (year == 2015), but it can be much more complex.
+
+If we want to <strong>execute more than one statement</strong>, we have to wrap our code block inside curly braces:
+```js
+if (year == 2015) {
+  alert( "That's correct!" );
+  alert( "You're so smart!" );
+}
+```
+We recommend wrapping your code block with curly braces ```{}``` every time you use an if statement, even if there is only one statement to execute. Doing so improves readability.
+
+### The “else” clause
+
+The if statement may contain an optional “else” block. It executes when the condition is false.
+
+For example:
+```js
+let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+
+if (year == 2015) {
+  alert( 'You guessed it right!' );
+} else {
+  alert( 'How can you be so wrong?' ); // any value except 2015
+}
+```
+Several conditions: “else if”
+
+Sometimes, we’d like to test several variants of a condition. The else if clause lets us do that.
+
+For example:
+```js
+let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+
+if (year < 2015) {
+  alert( 'Too early...' );
+} else if (year > 2015) {
+  alert( 'Too late' );
+} else {
+  alert( 'Exactly!' );
+}
+```
+In the code above, JavaScript first checks ```year < 2015```. If that is falsy, it goes to the next condition ```year > 2015```. If that is also falsy, it shows the last alert.
+
+There can be more else if blocks. The final else is optional.
