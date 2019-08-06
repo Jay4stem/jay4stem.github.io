@@ -160,18 +160,7 @@ In JavaScript, there are 3 types of quotes.
     Backticks: `Hello`.
 ```
 Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.
-
-
-
-
-
-
-
-                              
-
-
-
-                      
+```js                
 let name = "John";
 
 // embed a variable
@@ -179,27 +168,21 @@ alert( `Hello, ${name}!` ); // Hello, John!
 
 // embed an expression
 alert( `the result is ${1 + 2}` ); // the result is 3
-
-The expression inside ${…} is evaluated and the result becomes a part of the string. We can put anything in there: a variable like name or an arithmetical expression like 1 + 2 or something more complex.
+```
+The expression inside ```${…}``` is evaluated and the result becomes a part of the string. We can put anything in there: a variable like name or an arithmetical expression like 1 + 2 or something more complex.
 
 Please note that this can only be done in backticks. Other quotes don’t have this embedding functionality!
-
+```js
 alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
+```
+### A boolean (logical type)
 
-We’ll cover strings more thoroughly in the chapter Strings.
-There is no character type.
-
-In some languages, there is a special “character” type for a single character. For example, in the C language and in Java it is char.
-
-In JavaScript, there is no such type. There’s only one type: string. A string may consist of only one character or many of them.
-A boolean (logical type)
-
-The boolean type has only two values: true and false.
+The boolean type has only two values: ```true and false.```
 
 This type is commonly used to store yes/no values: true means “yes, correct”, and false means “no, incorrect”.
 
 For instance:
-
+```js
 let nameFieldChecked = true; // yes, name field is checked
 let ageFieldChecked = false; // no, age field is not checked
 
@@ -208,39 +191,131 @@ Boolean values also come as a result of comparisons:
 let isGreater = 4 > 1;
 
 alert( isGreater ); // true (the comparison result is "yes")
+```
 
-We’ll cover booleans more deeply in the chapter Logical operators.
-The “null” value
+### The “null” value
 
 The special null value does not belong to any of the types described above.
 
 It forms a separate type of its own which contains only the null value:
-
+```js
 let age = null;
-
-In JavaScript, null is not a “reference to a non-existing object” or a “null pointer” like in some other languages.
-
+```
 It’s just a special value which represents “nothing”, “empty” or “value unknown”.
 
 The code above states that age is unknown or empty for some reason.
-The “undefined” value
 
-The special value undefined also stands apart. It makes a type of its own, just like null.
+### Backticks
+Backticks embed the expression inside ```${...}``` into the string.
+```js
+let name = "Ilya";
 
-The meaning of undefined is “value is not assigned”.
+// the expression is a number 1
+alert( `hello ${1}` ); // hello 1
 
-If a variable is declared, but not assigned, then its value is undefined:
+// the expression is a string "name"
+alert( `hello ${"name"}` ); // hello name
 
-let x;
+// the expression is a variable, embed it
+alert( `hello ${name}` ); // hello Ilya
+```
 
-alert(x); // shows "undefined"
+## Type Conversions
+There are also cases when we need to explicitly convert a value to the expected type.
 
-Technically, it is possible to assign undefined to any variable:
+### ToString
 
-let x = 123;
+String conversion happens when we need the string form of a value.
 
-x = undefined;
+For example, alert(value) does it to show the value.
 
-alert(x); // "undefined"
+We can also call the ```String(value)``` function to convert a value to a string:
+```js
+let value = true;
+alert(typeof value); // boolean
 
-…But we don’t recommend doing that. Normally, we use null to assign an “empty” or “unknown” value to a variable, and we use undefined for checks like seeing if a variable has been assigned.
+value = String(value); // now value is a string "true"
+alert(typeof value); // string
+```
+String conversion is mostly obvious. A false becomes "false", null becomes "null", etc.
+
+### ToNumber
+
+Numeric conversion happens in mathematical functions and expressions automatically.
+
+For example, when division / is applied to non-numbers:
+```js
+alert( "6" / "2" ); // 3, strings are converted to numbers
+```
+We can use the Number(value) function to explicitly convert a value to a number:
+```js
+let str = "123";
+alert(typeof str); // string
+
+let num = Number(str); // becomes a number 123
+
+alert(typeof num); // number
+```
+
+### ToBoolean
+
+Boolean conversion is the simplest one.
+
+It happens in logical operations (later we’ll meet condition tests and other similar things) but can also be performed explicitly with a call to Boolean(value).
+
+The conversion rule:
+
+    Values that are intuitively “empty”, like 0, an empty string, null, undefined, and NaN, become false.
+    Other values become true.
+
+For instance:
+```js
+alert( Boolean(1) ); // true
+alert( Boolean(0) ); // false
+
+alert( Boolean("hello") ); // true
+alert( Boolean("") ); // false
+```
+
+There are 3 browser-specific functions to interact with visitors:
+  - alert
+        shows a message.
+  - prompt
+        shows a message asking the user to input text. It returns the text or, if Cancel button or Esc is clicked, null.
+  - confirm
+        shows a message and waits for the user to press “OK” or “Cancel”. It returns true for OK and false for Cancel/Esc.
+
+All these methods are modal: they pause script execution and don’t allow the visitor to interact with the rest of the page until the window has been dismissed.
+
+There are two limitations shared by all the methods above:
+
+    The exact location of the modal window is determined by the browser. Usually, it’s in the center.
+    The exact look of the window also depends on the browser. We can’t modify it.
+ 
+### Task
+### A simple page:
+    Create a web-page that asks for a name and outputs it.
+    
+    Solution:
+    ```js
+    JavaScript-code:
+
+    let name = prompt("What is your name?", "");
+    alert(name);
+
+    The full page:
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+      <script>
+        'use strict';
+
+        let name = prompt("What is your name?", "");
+        alert(name);
+      </script>
+
+    </body>
+    </html>
+    ```
