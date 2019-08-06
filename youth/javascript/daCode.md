@@ -1,4 +1,4 @@
-### Hello World
+## Hello World
 ```html
 <!DOCTYPE HTML>
 <html>
@@ -18,7 +18,7 @@
 </html>
 ```
 
-### Variables
+## Variables
 
 A variable is a “named storage” for data. We can use variables to store goodies, visitors, and other data.
 
@@ -71,7 +71,7 @@ let user = 'John'
   , age = 25
   , message = 'Hello';
 ```
-### Real World Example
+## Real World Example
 We can easily grasp the concept of a “variable” if we imagine it as a “box” for data, with a uniquely-named sticker on it.
 
 For instance, the variable message can be imagined as a box labeled "message" with the value "Hello!" in it:
@@ -81,7 +81,7 @@ For instance, the variable message can be imagined as a box labeled "message" wi
 We can put any value in the box.
 
 We can also change it as many times as we want:
-'''js
+```js
 let message;
 
 message = 'Hello!';
@@ -89,7 +89,28 @@ message = 'Hello!';
 message = 'World!'; // value changed
 
 alert(message);
-'''
+```
 When the value is changed, the old data is removed from the variable:
 
 ![Variable Box 2](https://javascript.info/article/variables/variable-change.svg)
+
+We can also declare two variables and copy data from one into the other.
+```js
+let hello = 'Hello world!';
+
+let message;
+
+// copy 'Hello world' from hello into message
+message = hello;
+
+// now two variables hold the same data
+alert(hello); // Hello world!
+alert(message); // Hello world!
+```
+
+## Task
+### Working with variables
+    - Declare two variables: admin and name.
+    - Assign the value "John" to name.
+    - Copy the value from name to admin.
+    - Show the value of admin using alert (must output “John”).
