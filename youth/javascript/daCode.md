@@ -373,3 +373,320 @@ if (year < 2015) {
 In the code above, JavaScript first checks ```year < 2015```. If that is falsy, it goes to the next condition ```year > 2015```. If that is also falsy, it shows the last alert.
 
 There can be more else if blocks. The final else is optional.
+
+## Task
+### Show the sign
+
+Using if..else, write the code which gets a number via prompt and then shows in alert:
+
+    1, if the value is greater than zero,
+    -1, if less than zero,
+    0, if equals zero.
+
+In this task we assume that the input is always a number.
+
+### Solution:
+      let value = prompt('Type a number', 0);
+
+      if (value > 0) {
+        alert( 1 );
+      } else if (value < 0) {
+        alert( -1 );
+      } else {
+        alert( 0 );
+      }
+      
+### || (OR)
+
+The “OR” operator is represented with two vertical line symbols:
+```js
+result = a || b;
+```
+In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are true, it returns true, otherwise it returns false.
+
+In JavaScript, the operator is a little bit trickier and more powerful. But first, let’s see what happens with boolean values.
+
+There are four possible logical combinations:
+```js
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+```
+As we can see, the result is always true except for the case when both operands are false.
+
+If an operand is not a boolean, it’s converted to a boolean for the evaluation.
+
+For instance, the number 1 is treated as true, the number 0 as false:
+```js
+if (1 || 0) { // works just like if( true || false )
+  alert( 'truthy!' );
+}
+```
+Most of the time, OR || is used in an if statement to test if any of the given conditions is true.
+
+For example:
+```js
+let hour = 9;
+
+if (hour < 10 || hour > 18) {
+  alert( 'The office is closed.' );
+}
+```
+We can pass more conditions:
+```js
+let hour = 12;
+let isWeekend = true;
+
+if (hour < 10 || hour > 18 || isWeekend) {
+  alert( 'The office is closed.' ); // it is the weekend
+}
+```
+
+### && (AND)
+
+The ```AND``` operator is represented with two ampersands``` &&```:
+```js
+result = a && b;
+```
+In classical programming, AND returns true if both operands are truthy and false otherwise:
+```js
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+```
+An example with if:
+```js
+let hour = 12;
+let minute = 30;
+
+if (hour == 12 && minute == 30) {
+  alert( 'The time is 12:30' );
+}
+```
+Just as with OR, any value is allowed as an operand of AND:
+```js
+if (1 && 0) { // evaluated as true && false
+  alert( "won't work, because the result is falsy" );
+}
+```
+
+### ! (NOT)
+
+The boolean NOT operator is represented with an exclamation sign !.
+
+The syntax is pretty simple:
+```js
+result = !value;
+```
+The operator accepts a single argument and does the following:
+
+    Converts the operand to boolean type: true/false.
+    Returns the inverse value.
+
+For instance:
+```js
+alert( !true ); // false
+alert( !0 ); // true
+```
+A double NOT !! is sometimes used for converting a value to boolean type:
+```js
+alert( !!"non-empty string" ); // true
+alert( !!null ); // false
+```
+That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+
+There’s a little more verbose way to do the same thing – a built-in Boolean function:
+```js
+alert( Boolean("non-empty string") ); // true
+alert( Boolean(null) ); // false
+```
+The precedence of ```NOT ! ```is the highest of all logical operators, so it always executes first, before``` && or ||```.
+
+## Tasks
+### Check the range between
+
+Write an “if” condition to check that age is between 14 and 90 inclusively.
+
+“Inclusively” means that age can reach the edges 14 or 90.
+
+### Check the range outside
+
+Write an if condition to check that age is <b>NOT</b> between 14 and 90 inclusively.
+
+     Create two variants: the first one using NOT !, the second one – without it.
+     
+## Loops: while and for
+
+We often need to repeat actions.
+
+For example, outputting goods from a list one after another or just running the same code for each number from 1 to 10.
+
+Loops are a way to repeat the same code multiple times.
+### The “while” loop
+
+The while loop has the following syntax:
+```js
+while (condition) {
+  // code
+  // so-called "loop body"
+}
+```
+While the condition is truthy, the code from the loop body is executed.
+
+For instance, the loop below outputs i while i < 3:
+```js
+let i = 0;
+while (i < 3) { // shows 0, then 1, then 2
+  alert( i );
+  i++;
+}
+```
+A single execution of the loop body is called an iteration. The loop in the example above makes three iterations.
+```js
+let i = 3;
+while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
+  alert( i );
+  i--;
+}
+```
+Curly braces are not required for a single-line body
+
+If the loop body has a single statement, we can omit the curly braces {…}:
+```js
+let i = 3;
+while (i) alert(i--);
+```
+### The “do…while” loop
+
+The condition check can be moved below the loop body using the do..while syntax:
+```js
+do {
+  // loop body
+} while (condition);
+```
+The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
+
+For example:
+```js
+let i = 0;
+do {
+  alert( i );
+  i++;
+} while (i < 3);
+```
+This form of syntax should only be used when you want the body of the loop to execute at least once regardless of the condition being truthy. Usually, the other form is preferred: while(…) {…}.
+### The “for” loop
+
+The for loop is more complex, but it’s also the most commonly used loop.
+
+It looks like this:
+```js
+for (begin; condition; step) {
+  // ... loop body ...
+}
+```
+Let’s learn the meaning of these parts by example. The loop below runs alert(i) for i from 0 up to (but not including) 3:
+```js
+for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+  alert(i);
+}
+```
+
+## Loops: while and for
+
+We often need to repeat actions.
+
+For example, outputting goods from a list one after another or just running the same code for each number from 1 to 10.
+
+Loops are a way to repeat the same code multiple times.
+### The “while” loop
+
+The while loop has the following syntax:
+```js
+while (condition) {
+  // code
+  // so-called "loop body"
+}
+```
+While the condition is truthy, the code from the loop body is executed.
+
+For instance, the loop below outputs i while i < 3:
+```js
+let i = 0;
+while (i < 3) { // shows 0, then 1, then 2
+  alert( i );
+  i++;
+}
+```
+A single execution of the loop body is called an iteration. The loop in the example above makes three iterations.
+```js
+let i = 3;
+while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
+  alert( i );
+  i--;
+}
+```
+Curly braces are not required for a single-line body
+
+If the loop body has a single statement, we can omit the curly braces {…}:
+```js
+let i = 3;
+while (i) alert(i--);
+```
+### The “do…while” loop
+
+The condition check can be moved below the loop body using the do..while syntax:
+```js
+do {
+  // loop body
+} while (condition);
+```
+The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
+
+For example:
+```js
+let i = 0;
+do {
+  alert( i );
+  i++;
+} while (i < 3);
+```
+This form of syntax should only be used when you want the body of the loop to execute at least once regardless of the condition being truthy. Usually, the other form is preferred: while(…) {…}.
+### The “for” loop
+
+The for loop is more complex, but it’s also the most commonly used loop.
+
+It looks like this:
+```js
+for (begin; condition; step) {
+  // ... loop body ...
+}
+```
+Let’s learn the meaning of these parts by example. The loop below runs alert(i) for i from 0 up to (but not including) 3:
+```js
+for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+  alert(i);
+}
+```
+
+### Class Example:
+Which values get shown by the "for" loop?
+importance: 4
+
+For each loop write down which values it is going to show. Then compare with the answer.
+
+Both loops alert same values or not?
+
+    The postfix form:
+```js
+    for (let i = 0; i < 5; i++) alert( i );
+```
+The prefix form:
+```js
+for (let i = 0; i < 5; ++i) alert( i );
+```
+## Task
+### Sum numbers from the visitor:
+    Create a script that prompts the visitor to enter two numbers and then shows their sum.
