@@ -693,3 +693,4 @@ for (let i = 0; i < 5; ++i) alert( i );
 
 ### links
 https://www.quackit.com/javascript/examples/
+http://javascriptbook.com/code/
