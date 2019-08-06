@@ -77,3 +77,19 @@ We can easily grasp the concept of a “variable” if we imagine it as a “box
 For instance, the variable message can be imagined as a box labeled "message" with the value "Hello!" in it:
 
 ![Variable Box](https://javascript.info/article/variables/variable.svg)
+
+We can put any value in the box.
+
+We can also change it as many times as we want:
+'''js
+let message;
+
+message = 'Hello!';
+
+message = 'World!'; // value changed
+
+alert(message);
+'''
+When the value is changed, the old data is removed from the variable:
+
+![Variable Box 2](https://javascript.info/article/variables/variable-change.svg)
