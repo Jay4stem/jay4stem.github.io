@@ -71,3 +71,9 @@ let user = 'John'
   , age = 25
   , message = 'Hello';
 ```
+### Real World Example
+We can easily grasp the concept of a “variable” if we imagine it as a “box” for data, with a uniquely-named sticker on it.
+
+For instance, the variable message can be imagined as a box labeled "message" with the value "Hello!" in it:
+
+![Variable Box](https://javascript.info/article/variables/variable.svg)
