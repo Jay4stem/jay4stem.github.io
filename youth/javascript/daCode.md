@@ -690,7 +690,3 @@ for (let i = 0; i < 5; ++i) alert( i );
 ## Task
 ### Sum numbers from the visitor:
     Create a script that prompts the visitor to enter two numbers and then shows their sum.
-
-### links
-https://www.quackit.com/javascript/examples/
-http://javascriptbook.com/code/
